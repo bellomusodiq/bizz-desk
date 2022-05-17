@@ -168,7 +168,7 @@ const Users: NextPage = () => {
       title: "STATUS",
       dataIndex: "status",
       key: "status",
-      render: (text, record) => {
+      render: (text: string, record: any) => {
         return text === "ACTIVE" ? (
           <div className={styles.ActiveStatus}>{text}</div>
         ) : (
@@ -185,7 +185,7 @@ const Users: NextPage = () => {
     {
       ellipsis: true,
       title: "",
-      render: (text, record) => (
+      render: (text: string, record: any) => (
         <div className={styles.Actions}>
           <button
             onClick={() => setDisableModal(true)}
