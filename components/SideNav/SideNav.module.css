@@ -1,0 +1,80 @@
+.SideNav {
+  background-color: white;
+  padding-top: 20px;
+  height: 100vh;
+  position: fixed;
+  width: calc(100vw / 6);
+  padding: 90px 24px 40px 24px;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+}
+.LinkItem,
+.Button {
+  display: flex;
+  cursor: pointer;
+  width: 100%;
+  align-items: center;
+  padding: 13.6px 9.6px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.Button {
+  background-color: transparent;
+  border: none;
+}
+.LinkItem:hover,
+.Button:hover {
+  background-color: #e9f3fa;
+}
+.Icon {
+  margin-right: 20px;
+}
+.Title {
+  color: #556977;
+  font-size: 14px;
+  line-height: 16.71px;
+}
+.Backdrop {
+  display: none;
+}
+.SideNavMobile {
+  display: none;
+}
+@media screen and (max-width: 1030px) {
+  .SideNav {
+    padding: 90px 12px 12px 12px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .SideNavMobile {
+    position: fixed;
+    display: block;
+    width: 40%;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 5;
+    transition: 0.4s ease all;
+    background-color: white;
+    opacity: 1;
+    padding: 40px 24px;
+    overflow-y: auto;
+  }
+  .SideNav {
+    display: none;
+  }
+  .Backdrop {
+    background-color: black;
+    opacity: 0.5;
+    z-index: 3;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+@media screen and (max-width: 500px) {
+  .SideNavMobile {
+    width: 70vw;
+  }
+}

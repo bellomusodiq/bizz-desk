@@ -1,0 +1,35 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Logo {
+  width: 30%;
+  margin-bottom: 66px;
+}
+.Header {
+  font-size: 24px;
+  margin-bottom: 40px;
+  align-self: flex-start;
+}
+.Label {
+  margin-bottom: 5px;
+  font-weight: 300;
+  font-size: 13px;
+  width: 100%;
+  color: #454d54;
+}
+.FormControl {
+  margin-bottom: 20px;
+  width: 100%;
+}
+.RememberContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.Link {
+  font-size: 13px;
+  text-decoration: underline !important;
+  color: #2085c9 !important;
+}

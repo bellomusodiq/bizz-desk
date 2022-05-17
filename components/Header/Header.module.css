@@ -1,0 +1,47 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 2.5%;
+  background-color: #e9f3fa;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 2;
+}
+.Logo {
+  height: 30px;
+}
+.Right {
+  display: flex;
+  align-items: center;
+}
+.DownOutlined {
+  margin-left: 16px;
+}
+.UserType {
+  margin-right: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 4px 9px;
+  background: rgba(32, 133, 201, 0.7);
+  border-radius: 4px;
+  color: white;
+}
+.Menu {
+  display: none;
+}
+@media screen and (max-width: 800px) {
+  .Right {
+    display: none;
+  }
+  .Menu {
+    display: block;
+    border: none;
+    background-color: inherit;
+  }
+  .Logo {
+    flex: 1;
+  }
+}

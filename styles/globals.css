@@ -1,9 +1,12 @@
+@font-face {
+  font-family: "SFProText";
+  src: url("../public/fonts/SFProText-Regular.ttf");
+}
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: SFProText, sans-serif;
 }
 
 a {
@@ -13,4 +16,50 @@ a {
 
 * {
   box-sizing: border-box;
+}
+.ant-table-thead > tr > th {
+  background-color: #fafafa !important;
+  padding: 14px !important;
+  font-family: "SFProText" !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 17px !important;
+  letter-spacing: -0.025em !important;
+  text-transform: uppercase !important;
+  color: #505780 !important;
+}
+.ant-table-tbody > tr > td {
+  padding: 30px 14px !important;
+  font-family: "SFProText" !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 17px !important;
+  letter-spacing: -0.025em !important;
+}
+.ant-table-measure-row {
+  display: none !important;
+}
+.ant-input,
+.ant-select-selector {
+  padding: 8px 10px !important;
+  border-radius: 4px !important;
+  height: fit-content !important;
+}
+.ant-input-affix-wrapper {
+  border-radius: 4px !important;
+  padding: 0px 10px !important;
+}
+.ant-modal {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+}
+.ant-modal-content {
+  border-radius: 20px !important;
+  padding-bottom: 10px !important;
+}
+@media screen and (min-width: 1690px) {
+  body {
+    width: 1440px !important;
+    margin: auto !important;
+  }
 }

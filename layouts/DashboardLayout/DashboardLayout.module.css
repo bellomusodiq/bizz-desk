@@ -1,0 +1,13 @@
+.Container {
+  background-color: #fafafa;
+  min-height: 100vh;
+}
+.Main {
+  margin-top: 70px;
+  padding: 40px 32px;
+}
+@media screen and (max-width: 500px) {
+  .Main {
+    padding: 20px 10px;
+  }
+}

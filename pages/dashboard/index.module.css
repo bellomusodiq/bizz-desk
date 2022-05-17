@@ -1,0 +1,71 @@
+.Title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #191716;
+  margin-bottom: 20px;
+}
+.SummaryCardContainer {
+  display: flex;
+}
+.SummaryCard {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.HeaderLeft {
+  display: flex;
+  align-items: center;
+}
+.Icon {
+  margin-right: 6px;
+}
+.SummaryTitle {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.025em;
+  color: #ed6a5a;
+}
+.Dropdown {
+  background-color: inherit;
+  border-radius: 40px;
+  padding: 5px 5px;
+  border-color: #425c8a2c;
+  display: flex;
+  align-items: center;
+}
+.Dropdown > span {
+  color: #425d8a;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 14px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.DropdownIcon {
+  margin-top: 5px;
+}
+.Count {
+  margin-top: 20px;
+  color: #191716;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.01em;
+}
+.Description {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.01em;
+  color: #425d8a;
+  margin-bottom: 0;
+}
+.Naira {
+  margin-right: 5px;
+}
