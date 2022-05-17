@@ -4,40 +4,34 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import AuthLayout from "../../../layouts/AuthLayout/AuthLayout";
-import styles from "./login.module.css";
+import styles from "./successful.module.css";
 
-const Login: NextPage = () => {
-  const [remember, setRemember] = useState<boolean>(false);
-
-  const toggleRemember = () => setRemember(!remember);
+const Successful: NextPage = () => {
   const router = useRouter();
 
   return (
     <AuthLayout>
       <div className={styles.Container}>
         <img src="/icons/logo.svg" className={styles.Logo} />
-        <h1 className={styles.Header}>Recover your account</h1>
-        <div className={styles.FormControl}>
-          <p className={styles.Label}>Email</p>
-          <Input style={{ padding: 10, borderRadius: 4 }} type="email" />
-        </div>
+        <h1 className={styles.Header}>Hello John</h1>
+        <p>You password has been created</p>
         <Button
           style={{
             backgroundColor: "#2085C9",
             color: "white",
-            marginTop: 35,
+            marginTop: 15,
             padding: 10,
             height: "fit-content",
             borderRadius: 4,
           }}
           block
-          onClick={() => router.push("/auth/new-password")}
+          onClick={() => router.push("/auth/login")}
         >
-          Send recovery link
+          Login to your account
         </Button>
       </div>
     </AuthLayout>
   );
 };
 
-export default Login;
+export default Successful;

@@ -1,6 +1,7 @@
 import { Button, Input, Radio, Space } from "antd";
 import { NextPage } from "next";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import AuthLayout from "../../../layouts/AuthLayout/AuthLayout";
 import styles from "./login.module.css";
@@ -9,6 +10,7 @@ const Login: NextPage = () => {
   const [remember, setRemember] = useState<boolean>(false);
 
   const toggleRemember = () => setRemember(!remember);
+  const router = useRouter();
 
   return (
     <AuthLayout>
@@ -17,19 +19,11 @@ const Login: NextPage = () => {
         <h1 className={styles.Header}>Login to your dashboard</h1>
         <div className={styles.FormControl}>
           <p className={styles.Label}>Email</p>
-          <Input
-            style={{ padding: 10, borderRadius: 4 }}
-            placeholder="ozenua@hisemail.example"
-            type="email"
-          />
+          <Input style={{ padding: 10, borderRadius: 4 }} type="email" />
         </div>
         <div className={styles.FormControl}>
           <p className={styles.Label}>Password</p>
-          <Input.Password
-            style={{ padding: 10, borderRadius: 4 }}
-            type="email"
-            placeholder="******************"
-          />
+          <Input.Password style={{ padding: 10, borderRadius: 4 }} />
         </div>
         <div className={styles.RememberContainer}>
           <div className={styles.Radio}>
@@ -42,7 +36,7 @@ const Login: NextPage = () => {
             </Radio>
           </div>
           <div className={styles.Link}>
-            <Link href="/">Forgotten password</Link>
+            <Link href="/auth/recover-account">Forgotten password</Link>
           </div>
         </div>
         <Button
@@ -55,6 +49,7 @@ const Login: NextPage = () => {
             borderRadius: 4,
           }}
           block
+          onClick={() => router.push("/dashboard")}
         >
           Login to your account
         </Button>

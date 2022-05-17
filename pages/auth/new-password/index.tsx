@@ -1,6 +1,7 @@
 import { Button, Input, Radio, Space } from "antd";
 import { NextPage } from "next";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import AuthLayout from "../../../layouts/AuthLayout/AuthLayout";
 import styles from "./login.module.css";
@@ -10,6 +11,8 @@ const Login: NextPage = () => {
 
   const toggleRemember = () => setRemember(!remember);
 
+  const router = useRouter();
+
   return (
     <AuthLayout>
       <div className={styles.Container}>
@@ -17,17 +20,13 @@ const Login: NextPage = () => {
         <h1 className={styles.Header}>Create new password</h1>
         <div className={styles.FormControl}>
           <p className={styles.Label}>Enter new password</p>
-          <Input.Password
-            style={{ padding: 10, borderRadius: 4 }}
-            placeholder="******************"
-          />
+          <Input.Password style={{ padding: 10, borderRadius: 4 }} />
         </div>
         <div className={styles.FormControl}>
           <p className={styles.Label}>Confirm new password</p>
           <Input.Password
             style={{ padding: 10, borderRadius: 4 }}
             type="email"
-            placeholder="******************"
           />
         </div>
         <Button
@@ -40,6 +39,7 @@ const Login: NextPage = () => {
             borderRadius: 4,
           }}
           block
+          onClick={() => router.push("/auth/successful")}
         >
           Create new password
         </Button>
