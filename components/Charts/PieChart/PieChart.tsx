@@ -18,6 +18,8 @@ const PieChart: React.FC<IPieChart> = ({
   isNaira,
   value,
   percentage,
+  colors = COLORS,
+  caption,
 }) => {
   return (
     <div className={styles.Container}>
@@ -45,13 +47,18 @@ const PieChart: React.FC<IPieChart> = ({
             {data.map((_: any, index: any) => (
               <Cell
                 key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
+                fill={colors[index % colors.length]}
               />
             ))}
           </Pie>
           <Legend />
         </PChart>
       </ResponsiveContainer>
+      {caption?.map((cap: string, i: number) => (
+        <p key={i} className={styles.Caption}>
+          {cap}
+        </p>
+      ))}
     </div>
   );
 };

@@ -4,4 +4,6 @@ export interface IPieChart {
   value: string;
   percentage: number;
   isNaira?: boolean;
+  colors?: string[];
+  caption?: string[];
 }

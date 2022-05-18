@@ -1,9 +1,6 @@
-import { DownOutlined } from "@ant-design/icons";
-import { ReactDOM } from "react";
-import { Line } from "@antv/g2plot";
-import { Col, Dropdown, Menu, Row } from "antd";
+import { Col, Row } from "antd";
 import { NextPage } from "next";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import Card from "../../components/Card/Card";
 import DashboardLayout from "../../layouts/DashboardLayout/DashboardLayout";
 import styles from "./index.module.css";
@@ -99,7 +96,7 @@ const DashboardHome: NextPage = () => {
             </Card>
           </Col>
         </Row>
-        <Row style={{ marginTop: 20 }} gutter={[20, 20]}>
+        <Row align="stretch" style={{ marginTop: 20 }} gutter={[20, 20]}>
           <Col xs={24} md={12} lg={8}>
             <Card>
               <PieChart
@@ -116,6 +113,11 @@ const DashboardHome: NextPage = () => {
                 ]}
                 value="4.3k"
                 percentage={32}
+                colors={["#91EDE2", "#FF7766"]}
+                caption={[
+                  "204,849 declined transaction",
+                  "4,343 declined transaction",
+                ]}
               />
             </Card>
           </Col>
@@ -136,6 +138,11 @@ const DashboardHome: NextPage = () => {
                 value="34m"
                 isNaira
                 percentage={22}
+                colors={["#2085C9", "#20C9B5"]}
+                caption={[
+                  "N34,204,343 income made by PTSP",
+                  "N34,204,343 income made by TMO",
+                ]}
               />
             </Card>
           </Col>
@@ -156,6 +163,11 @@ const DashboardHome: NextPage = () => {
                 value="34m"
                 isNaira
                 percentage={33}
+                colors={["#2085C9", "#20C9B5"]}
+                caption={[
+                  "N34,204,343 income made by PTSP",
+                  "N34,204,343 income made by TMO",
+                ]}
               />
             </Card>
           </Col>

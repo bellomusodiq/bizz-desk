@@ -263,7 +263,7 @@ const Users: NextPage = () => {
     },
     {
       ellipsis: true,
-      title: "DATE",
+      title: "DATE CREATED",
       dataIndex: "dateCreated",
       key: "dateCreated",
     },
