@@ -115,7 +115,7 @@ const DashboardHome: NextPage = () => {
                 percentage={32}
                 colors={["#91EDE2", "#FF7766"]}
                 caption={[
-                  "204,849 declined transaction",
+                  "204,849 approved transaction",
                   "4,343 declined transaction",
                 ]}
               />
