@@ -1,0 +1,62 @@
+.Container {
+  padding: 20px;
+}
+.Title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: -1px;
+  color: #000000;
+  margin: 0;
+}
+.Dropdown {
+  background-color: inherit;
+  border-radius: 4px;
+  padding: 11px 20px;
+  border-color: #425c8a2c;
+  display: flex;
+  align-items: center;
+  border-width: 1px !important;
+}
+.DropdownIcon {
+  /* margin-top: 5px; */
+}
+.DropdownTitle {
+  margin-right: 8px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: rgba(16, 16, 18, 0.4);
+}
+.FilterComponent {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.ButtonContainer {
+  flex: 0.8;
+  display: flex;
+  justify-content: flex-end;
+}
+.UserType {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #16192c;
+  margin-right: 9.5px;
+}
+.FilterContainer {
+  display: flex;
+  align-items: center;
+}
+.SearchContainer {
+  margin-right: 15px;
+}
+.HeaderContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}

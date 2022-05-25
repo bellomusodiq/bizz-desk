@@ -12,10 +12,15 @@
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@antv/g2plot": "^2.4.16",
+    "@react-google-maps/api": "^2.11.8",
+    "@types/google-map-react": "^2.1.7",
     "antd": "^4.20.4",
+    "apexcharts": "^3.35.2",
+    "google-map-react": "^2.1.10",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "react-google-maps": "^9.4.5",
     "recharts": "^2.1.9"
   },
   "devDependencies": {

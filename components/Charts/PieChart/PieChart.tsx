@@ -1,4 +1,7 @@
+import { DownOutlined } from "@ant-design/icons";
+import { Dropdown, Menu } from "antd";
 import React from "react";
+import { useState } from "react";
 import {
   Cell,
   Label,
@@ -20,10 +23,85 @@ const PieChart: React.FC<IPieChart> = ({
   percentage,
   colors = COLORS,
   caption,
+  isFilter,
+  rightLegend,
+  customHeader,
 }) => {
+  const [date, setDate] = useState<string>("Last Month");
+  const [bank, setBank] = useState<string>("All Banks");
+  const menu: JSX.Element = (
+    <Menu
+      items={[
+        {
+          label: "Last Month",
+          key: "0",
+          onClick: () => setDate("Last Month"),
+        },
+        {
+          label: "2 Months",
+          key: "1",
+          onClick: () => setDate("2 Months"),
+        },
+        {
+          label: "3 Months",
+          key: "3",
+          onClick: () => setDate("3 Months"),
+        },
+      ]}
+    />
+  );
+
+  const bankMenu: JSX.Element = (
+    <Menu
+      items={[
+        {
+          label: "All Banks",
+          key: "0",
+          onClick: () => setBank("All Banks"),
+        },
+        {
+          label: "GT Bank",
+          key: "1",
+          onClick: () => setBank("GT Bank"),
+        },
+        {
+          label: "First Bank",
+          key: "3",
+          onClick: () => setBank("First Bank"),
+        },
+      ]}
+    />
+  );
+
   return (
     <div className={styles.Container}>
-      <p className={styles.Title}>{title}</p>
+      {customHeader ? (
+        customHeader
+      ) : (
+        <div className={styles.Header}>
+          <p className={styles.Title}>{title}</p>
+          {isFilter && (
+            <div className={styles.RoleContainer}>
+              <Dropdown overlay={menu} trigger={["click"]}>
+                <button className={styles.Dropdown}>
+                  <span className={styles.UserType}>{date}</span>
+                  <DownOutlined className={styles.DropdownIcon} />
+                </button>
+              </Dropdown>
+            </div>
+          )}
+        </div>
+      )}
+      {isFilter && (
+        <div className={styles.DropdownContainer}>
+          <Dropdown overlay={bankMenu} trigger={["click"]}>
+            <button className={styles.Dropdown2}>
+              <span className={styles.UserType}>{bank}</span>
+              <DownOutlined className={styles.DropdownIcon} />
+            </button>
+          </Dropdown>
+        </div>
+      )}
       <ResponsiveContainer width="100%" minHeight={350}>
         <PChart>
           <Pie
@@ -38,6 +116,7 @@ const PieChart: React.FC<IPieChart> = ({
             label
             startAngle={0}
             endAngle={360}
+            legendType="circle"
           >
             <Label
               value={isNaira ? `${value}` : value}
@@ -51,7 +130,7 @@ const PieChart: React.FC<IPieChart> = ({
               />
             ))}
           </Pie>
-          <Legend />
+          {!rightLegend && <Legend />}
         </PChart>
       </ResponsiveContainer>
       {caption?.map((cap: string, i: number) => (

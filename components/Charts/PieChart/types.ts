@@ -6,4 +6,7 @@ export interface IPieChart {
   isNaira?: boolean;
   colors?: string[];
   caption?: string[];
+  isFilter?: boolean;
+  rightLegend?: boolean;
+  customHeader?: JSX.Element;
 }

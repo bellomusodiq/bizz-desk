@@ -1,0 +1,41 @@
+.Container {
+  width: 100%;
+  padding: 20px 22px;
+  height: 542px;
+}
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.Title {
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 29px;
+  letter-spacing: -1px;
+  color: #000000;
+  margin-bottom: 0;
+}
+.Dropdown {
+  background-color: inherit;
+  border-radius: 40px;
+  padding: 5px 5px;
+  border-color: #425c8a2c;
+  display: flex;
+  align-items: center;
+}
+.Dropdown > span {
+  color: #425d8a;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 14px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.DropdownIcon {
+  margin-top: 5px;
+}
+.DropdownContainer {
+  margin-top: 10px;
+}

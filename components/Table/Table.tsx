@@ -12,6 +12,7 @@ const Table: React.FC<ITable> = ({
   data,
   columns,
   filterComponent,
+  scroll,
 }) => {
   return (
     <>
@@ -29,7 +30,7 @@ const Table: React.FC<ITable> = ({
         <div className={styles.Container}>
           {filterComponent}
           <ATable
-            scroll={{ x: true }}
+            scroll={{ x: true, y: scroll?.y }}
             tableLayout="fixed"
             columns={columns}
             dataSource={data}

@@ -1,9 +1,8 @@
-import { TableColumnsType } from "antd";
-
 export interface ITable {
-  title: string;
+  title?: string;
   viewAllLink?: string;
   data?: any;
   columns?: any;
   filterComponent?: JSX.Element;
+  scroll?: { x?: number; y?: number };
 }

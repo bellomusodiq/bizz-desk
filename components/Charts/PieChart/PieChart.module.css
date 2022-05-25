@@ -3,11 +3,12 @@
 }
 .Title {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 19px;
   letter-spacing: -0.01em;
   text-transform: uppercase;
   color: #425d8a;
+  margin-bottom: 0;
 }
 .Caption {
   font-weight: 400;
@@ -15,4 +16,50 @@
   line-height: 14px;
   letter-spacing: -0.01em;
   color: #425d8a;
+}
+.Dropdown {
+  background-color: inherit;
+  border-radius: 40px;
+  padding: 5px 5px;
+  border-color: #425c8a2c;
+  display: flex;
+  align-items: center;
+}
+.Dropdown > span {
+  color: #425d8a;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 14px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.DropdownIcon {
+  margin-top: 5px;
+}
+.DropdownContainer {
+  margin-top: 10px;
+}
+.Dropdown2 {
+  background-color: inherit;
+  border-radius: 8px;
+  padding: 5px 5px;
+  border-color: #425d8a2c;
+  display: flex;
+  align-items: center;
+}
+.Dropdown2 > span {
+  color: #425d8a;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 14px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.DropdownIcon {
+  margin-top: 5px;
+}
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

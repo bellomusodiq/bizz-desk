@@ -3,8 +3,8 @@
   min-height: 100vh;
 }
 .Main {
-  margin-top: 70px;
   padding: 40px 32px;
+  padding-top: 70px;
 }
 @media screen and (max-width: 500px) {
   .Main {

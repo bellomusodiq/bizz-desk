@@ -1,0 +1,526 @@
+.TitleContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.Title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #191716;
+  margin-bottom: 20px;
+}
+.TableContainer {
+  margin-top: 40px;
+}
+.Dropdown {
+  background-color: inherit;
+  border-radius: 4px;
+  padding: 11px 20px;
+  border-color: #425c8a2c;
+  display: flex;
+  align-items: center;
+  border-width: 1px !important;
+}
+.DropdownIcon {
+  /* margin-top: 5px; */
+}
+.DropdownTitle {
+  margin-right: 8px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: rgba(16, 16, 18, 0.4);
+}
+.FilterComponent {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.ButtonContainer {
+  flex: 0.8;
+  display: flex;
+  justify-content: flex-end;
+}
+.UserType {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #16192c;
+  margin-right: 9.5px;
+}
+.Calendar {
+  background-color: white;
+  width: 30%;
+  position: relative;
+}
+.CalendarButton {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+.ExportData {
+  background: #e9f3fa !important;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: -0.025em;
+  color: #2085c9;
+  border: none !important;
+  padding: 12px 21.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.SearchContainer {
+  width: 20%;
+}
+.SearchContainer > .ant-input {
+  padding: 0 !important;
+}
+.DateContainer {
+  width: 35%;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  padding: 2px 20px;
+  border: 1px solid #425c8a2c;
+}
+.Divider {
+  /* width: 1px; */
+  height: 18px;
+}
+.Actions {
+  display: flex;
+  align-items: center;
+}
+.Actions > button {
+  margin: 0 10px;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+.Disable {
+  color: #ed6a5a;
+}
+.View {
+  color: #2085c9;
+}
+.Edit {
+  color: #95c7ec;
+}
+.ConfirmButton {
+  width: 100%;
+  background: #2085c9 !important;
+  border-radius: 12px;
+  color: white;
+  padding: 15px 0;
+  height: fit-content !important;
+}
+.DisableButton {
+  width: 100%;
+  background: #ed6a5a !important;
+  border-radius: 12px;
+  color: white;
+  padding: 15px 0;
+  height: fit-content !important;
+}
+.FormControl {
+  text-align: left;
+  margin-bottom: 24px;
+}
+/* .FormControl input.ant-input {
+  padding: 5px 15px !important;
+} */
+.FormControl > p {
+  margin-bottom: 5px;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 16px;
+  color: #454d54;
+}
+.Link {
+  margin-top: 24px;
+  margin-bottom: 64px;
+}
+.Date {
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 16px;
+  margin: 0;
+}
+.UserModal {
+  width: 100%;
+  justify-content: space-between;
+  text-align: center;
+}
+.UserModal > button {
+  width: 40%;
+  margin: 0 5%;
+  padding: 10px 0;
+  border-radius: 12px;
+  box-sizing: content-box;
+}
+.DisableModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.DisableModal > img {
+  width: 40%;
+}
+.DisableModal > h3 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  letter-spacing: -0.05em;
+  margin: 20px 0;
+}
+.DisableModal > p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.025em;
+  color: #666666;
+}
+.CreateButtonContainer {
+  display: flex;
+}
+.PrinterHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.PrinterHeader > h3 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: -1px;
+  color: #191716;
+  margin: 0;
+}
+.PrinterTitle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #425d8a;
+  margin: 0;
+}
+.PrinterCount {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 38px;
+  text-align: right;
+  letter-spacing: -0.01em;
+  color: #191716;
+  margin: 0;
+}
+.PowerCharged {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.025em;
+  color: #136f63;
+  margin: 0;
+}
+.PowerCharging {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.025em;
+  color: #eda95a;
+  margin: 0;
+}
+.RestoreButton {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.025em;
+  color: #136f63;
+}
+@media screen and (max-width: 1030px) {
+  .FilterComponent > div {
+    margin-bottom: 10px;
+  }
+  .SearchContainer {
+    width: 35%;
+  }
+  /* .RoleContainer,
+  .StatusContainer {
+    width: 30%;
+  } */
+  .ButtonContainer {
+    flex: 0;
+  }
+  .DateContainer {
+    width: 45%;
+  }
+}
+.ActiveStatus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  background: #e9fbf9;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #136f63;
+}
+.InActiveStatus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  background: #fdf6ef;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #eda95a;
+}
+.DateCreated {
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: left;
+  color: #191716;
+}
+.ProfileTitle {
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.AvatarContainer {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #c4c4c4;
+}
+.ProfileName {
+  flex: 0.95;
+}
+.ProfileName > h3 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.025em;
+  color: #000000;
+  margin-bottom: 8px;
+}
+.ProfileName > span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  background: #e9fbf9;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #136f63;
+  width: fit-content;
+}
+.NetworkBar {
+  display: flex;
+  height: 9px;
+  flex: 1;
+}
+.NetworkBarFill {
+  background-color: #ed6a5a;
+}
+.NetworkBarEmpty {
+  background-color: #fceae8;
+}
+.OverviewTitle {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #425d8a;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.BatteryContainer {
+  display: flex;
+  align-items: center;
+}
+.Battery {
+  height: 20px;
+  display: flex;
+}
+.Battery > div {
+  width: 6px;
+  height: 100%;
+  margin: 0 2px;
+}
+.BarFull {
+  background-color: #136f63;
+}
+.BarEmpty {
+  background-color: #e9fbf9;
+}
+.OverviewText {
+  margin: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  text-align: left;
+}
+.OverviewHeader {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.025em;
+  color: #191716;
+  text-align: left;
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+.Charging {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+.Charging > img {
+  margin-right: 10px;
+}
+.TransactionHeader {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.025em;
+  color: #191716;
+  text-align: left;
+}
+.TransactionContainer {
+  text-align: left;
+}
+.TransactionTitle {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #425d8a;
+  margin-bottom: 9px;
+}
+.TransactionBody {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+}
+.MerchantDetailTitle {
+  text-align: left;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #425d8a;
+}
+.MerchantName {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #191716;
+}
+.MerchantId {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 14px;
+  color: #425d8a;
+}
+.UploadButton {
+  border: 1px dashed #2085c9;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  cursor: pointer;
+  width: 100%;
+  padding: 20px 50px;
+}
+.UploadButton > p {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 150%;
+  text-align: center;
+  color: #191716;
+  margin-bottom: 0;
+}
+.UploadButton > span {
+  margin-top: 15px;
+  color: #425d8a;
+}
+.CompleteUploadContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.CompleteUpload {
+  background: #2085c9 !important;
+  border-radius: 8px;
+  color: white !important;
+  padding: 7px 20px;
+  box-sizing: content-box;
+  border: none;
+}
+.ProceedButton {
+  width: 100%;
+  background: #2085c9 !important;
+  border-radius: 12px;
+  color: white;
+  padding: 15px 0;
+  height: fit-content !important;
+}
+.TabContainer {
+  background-color: white;
+  margin-bottom: 32px;
+  display: flex;
+}
+.TabItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}
+.TabItem > span {
+  padding: 10px 24px;
+}
+.TabLine {
+  width: 100%;
+  height: 3px;
+  background-color: #2085c9;
+}
+.AccquisitionForm {
+  padding: 30px;
+}
+@media screen and (max-width: 800px) {
+  .DateContainer {
+    width: 55%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .FilterComponent {
+    display: none;
+  }
+}

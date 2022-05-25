@@ -1,7 +1,8 @@
 export interface ISummaryItem {
   percentage: number;
-  totalCount: number;
+  totalCount: number | string;
   title: string;
+  subTotal?: string;
   isNaira?: boolean;
   xs?: number;
   sm?: number;
