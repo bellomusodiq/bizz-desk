@@ -365,23 +365,6 @@ const TerminalStock: React.FC<ITerminalStock> = ({ isBatch }) => {
     />
   );
 
-  const calendarMenu: JSX.Element = (
-    <div className={styles.Calendar}>
-      <Calendar
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: 300,
-          backgroundColor: "white",
-          border: "1px solid #425c8a2c",
-          borderRadius: 4,
-        }}
-        fullscreen={false}
-      />
-    </div>
-  );
-
   const filterComponent = (
     <div className={styles.FilterComponent}>
       <div className={styles.SearchContainer}>
@@ -635,33 +618,6 @@ const TerminalStock: React.FC<ITerminalStock> = ({ isBatch }) => {
           <Input value={model} onChange={(e) => setModel(e.target.value)} />
         </div>
       </Modal>
-      <nav className={styles.TabContainer}>
-        <a
-          onClick={(e) => {
-            e.preventDefault();
-          }}
-          className={styles.TabItem}
-        >
-          <span style={{ color: "#839BC3" }}>Terminals</span>
-        </a>
-        <a
-          onClick={(e) => {
-            e.preventDefault();
-          }}
-          className={styles.TabItem}
-        >
-          <span style={{ color: "#839BC3" }}>Terminal Acquisition</span>
-        </a>
-        <a
-          onClick={(e) => {
-            e.preventDefault();
-          }}
-          className={styles.TabItem}
-        >
-          <span style={{ color: "#191716" }}>Terminal Stock Inventory</span>
-          <div className={styles.TabLine} />
-        </a>
-      </nav>
       <div className={styles.TerminalStock}>
         <div className={styles.TitleContainer}>
           <h1 className={styles.Title}>

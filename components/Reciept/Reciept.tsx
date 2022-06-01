@@ -338,6 +338,10 @@ const Reciept: React.FC = () => {
         ) : (
           <>
             <div className={styles.FormControl}>
+              <p>Name</p>
+              <Input value={name} onChange={(e) => setName(e.target.value)} />
+            </div>
+            <div className={styles.FormControl}>
               <p>Version</p>
               <Input
                 value={version}
@@ -450,6 +454,10 @@ const Reciept: React.FC = () => {
           </>
         ) : (
           <>
+            <div className={styles.FormControl}>
+              <p>Name</p>
+              <Input value={"UBA"} />
+            </div>
             <div className={styles.FormControl}>
               <p>Version</p>
               <Input value={"1.0.3"} />

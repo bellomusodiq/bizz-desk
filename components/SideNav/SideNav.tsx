@@ -102,7 +102,7 @@ const SideNav: React.FC<ISideNav> = ({ show, closeSideNav }) => {
         active={"/dashboard/terminals" === router.pathname}
       />
       <LinkItem
-        title="Notification ser..."
+        title="Notification Services"
         icon="notification"
         path="/dashboard/notifications"
         active={"/dashboard/notifications" === router.pathname}
