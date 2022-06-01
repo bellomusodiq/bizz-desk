@@ -4,7 +4,7 @@ import { NextPage } from "next";
 import React, { useState } from "react";
 import Table from "../../../components/Table/Table";
 import DashboardLayout from "../../../layouts/DashboardLayout/DashboardLayout";
-import styles from "./banks.module.css";
+import styles from "./audit-logs.module.css";
 
 const BANKS = [
   {
