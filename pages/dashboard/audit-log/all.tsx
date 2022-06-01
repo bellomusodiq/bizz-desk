@@ -292,7 +292,7 @@ const Banks: NextPage = () => {
         <Table
           columns={columns}
           data={BANKS}
-          title="List of Banks"
+          title="List of Audit Logs"
           filterComponent={filterBankComponent}
         />
       </div>

@@ -22,7 +22,7 @@ const USERS = [
     transactionType: "Purchase",
     amount: "10.00",
     dateTime: "2022-02-02 06:35:24PM",
-    status: "APPROVED",
+    status: "FAILED",
     currency: "566",
     bankCharges: "2.5",
     recievableAmount: "9.5",
@@ -43,7 +43,7 @@ const USERS = [
     transactionType: "Purchase",
     amount: "10.00",
     dateTime: "2022-02-02 06:35:24PM",
-    status: "APPROVED",
+    status: "FAILED",
     currency: "566",
     bankCharges: "2.5",
     recievableAmount: "9.5",
@@ -64,7 +64,7 @@ const USERS = [
     transactionType: "Purchase",
     amount: "10.00",
     dateTime: "2022-02-02 06:35:24PM",
-    status: "APPROVED",
+    status: "FAILED",
     currency: "566",
     bankCharges: "2.5",
     recievableAmount: "9.5",
@@ -85,7 +85,7 @@ const USERS = [
     transactionType: "Purchase",
     amount: "10.00",
     dateTime: "2022-02-02 06:35:24PM",
-    status: "APPROVED",
+    status: "FAILED",
     currency: "566",
     bankCharges: "2.5",
     recievableAmount: "9.5",
@@ -106,7 +106,7 @@ const USERS = [
     transactionType: "Purchase",
     amount: "10.00",
     dateTime: "2022-02-02 06:35:24PM",
-    status: "APPROVED",
+    status: "FAILED",
     currency: "566",
     bankCharges: "2.5",
     recievableAmount: "9.5",
@@ -540,7 +540,7 @@ const AllUsers: NextPage = () => {
         <Table
           columns={columns}
           data={USERS}
-          title="List of POS Transactions"
+          title="List of Chargebacks"
           filterComponent={filterComponent}
         />
       </div>
