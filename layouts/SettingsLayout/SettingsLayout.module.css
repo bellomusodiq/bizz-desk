@@ -1,0 +1,34 @@
+.SettingsNav {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  border-right: 1px solid #ebf2fa;
+  padding: 13px;
+  align-items: flex-start;
+  background-color: white;
+}
+.SettingsItem,
+.SettingsItemActive {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.025em;
+  margin-bottom: 15px;
+  padding: 13px;
+}
+.SettingsItem {
+  color: #556977 !important;
+}
+.SettingsItemActive,
+.SettingsItem:hover {
+  color: #191716 !important;
+  background: rgba(85, 105, 119, 0.1);
+  border-radius: 4px;
+}
+.Icon {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}

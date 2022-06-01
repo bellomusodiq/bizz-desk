@@ -1,5 +1,5 @@
 export type LinkItemProps = {
-  icon: string;
+  icon?: string;
   title: string;
   path?: string;
   onClick?: () => void;

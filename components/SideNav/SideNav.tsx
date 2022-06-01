@@ -21,11 +21,13 @@ const LinkItem: React.FC<LinkItemProps> = ({
         className={styles.LinkItem}
         style={{ background: isHover || active ? "#E9F3FA" : "transparent" }}
       >
-        <img
-          src={`/icons/${isHover || active ? icon + "-hilight" : icon}.svg`}
-          alt={title}
-          className={styles.Icon}
-        />
+        {icon && (
+          <img
+            src={`/icons/${isHover || active ? icon + "-hilight" : icon}.svg`}
+            alt={title}
+            className={styles.Icon}
+          />
+        )}
         <span
           className={styles.Title}
           style={{ color: isHover || active ? "#2085C9" : "#556977" }}
@@ -141,6 +143,11 @@ const SideNav: React.FC<ISideNav> = ({ show, closeSideNav }) => {
         icon="setting"
         path="/dashboard/settings"
         active={"/dashboard/settings" === router.pathname}
+      />
+      <LinkItem
+        title="Audit Log"
+        path="/dashboard/audit-log"
+        active={"/dashboard/audit-log" === router.pathname}
       />
       <LinkItem title="Logout" icon="logout" onClick={() => {}} />
     </>

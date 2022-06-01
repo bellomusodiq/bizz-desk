@@ -19,6 +19,9 @@
   cursor: pointer;
   border-radius: 4px;
 }
+.LinkItem {
+  margin-bottom: 5px;
+}
 .Button {
   background-color: transparent;
   border: none;
