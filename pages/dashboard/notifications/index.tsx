@@ -835,30 +835,12 @@ const Users: NextPage = () => {
         <Table
           columns={notificationServiceColumns}
           data={NOTIFICATION_SERVICES}
-          title="List of Notification Transactions"
+          title="List of Notification Services"
           // filterComponent={filterComponent}
         />
       </div>
       <div style={{ marginTop: 50 }} className={styles.TitleContainer}>
         <h1 className={styles.Title}>Notification Transactions</h1>
-        <Button
-          style={{
-            backgroundColor: "#2085C9",
-            color: "white",
-            display: "flex",
-            alignItems: "center",
-            borderRadius: 8,
-            padding: 20,
-          }}
-          onClick={() => {
-            setOpenUserForm(true);
-            setIsEditUser(false);
-            setType("transactions");
-          }}
-          icon={<img style={{ marginRight: 5 }} src="/icons/add-square.svg" />}
-        >
-          Create Notification transaction
-        </Button>
       </div>
       <div className={styles.TableContainer}>
         <Table
