@@ -95,6 +95,10 @@ const SettingsLayout: React.FC<ISettingsLayout> = ({
       icon: "transaction-minus2",
       key: "transactions",
     },
+    {
+      title: "Remote Update",
+      key: "remote-update",
+    },
   ];
   return (
     <DashboardLayout>

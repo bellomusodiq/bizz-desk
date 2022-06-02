@@ -9,6 +9,7 @@ import Currency from "../../../components/Currency/Currency";
 import Host from "../../../components/Host/Host";
 import MerchantBandSettings from "../../../components/MerchantBandSettings/MerchantBandSettings";
 import Reciept from "../../../components/Reciept/Reciept";
+import RemoteUpdate from "../../../components/RemoteUpdate/RemoteUpdate";
 import RolesSettings from "../../../components/RolesSettings/RolesSettings";
 import Transactions from "../../../components/Transactions/Transactions";
 import SettingsLayout from "../../../layouts/SettingsLayout/SettingsLayout";
@@ -28,6 +29,7 @@ const Settings: NextPage = () => {
       {current === "receipt" && <Reciept />}
       {current === "host" && <Host />}
       {current === "card" && <CardSettings />}
+      {current === "remote-update" && <RemoteUpdate />}
     </SettingsLayout>
   );
 };
