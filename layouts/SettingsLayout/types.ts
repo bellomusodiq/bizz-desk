@@ -7,6 +7,7 @@ export interface ISettingsLayout {
 export interface ISettingsItem {
   title: string;
   icon?: string;
+  iconComponent?: JSX.Element;
   active?: boolean;
   onClick: () => void;
 }

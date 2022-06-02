@@ -1,3 +1,4 @@
+import { CloudUploadOutlined } from "@ant-design/icons";
 import { Col, Row } from "antd";
 import React, { useState } from "react";
 import DashboardLayout from "../DashboardLayout/DashboardLayout";
@@ -9,6 +10,7 @@ const SettingsItem: React.FC<ISettingsItem> = ({
   icon,
   active,
   onClick,
+  iconComponent,
 }) => {
   const [isHover, setIsHover] = useState<boolean>(false);
   const navigate = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -29,6 +31,7 @@ const SettingsItem: React.FC<ISettingsItem> = ({
           className={styles.Icon}
         />
       )}
+      {iconComponent}
       <span>{title}</span>
     </a>
   );
@@ -98,6 +101,14 @@ const SettingsLayout: React.FC<ISettingsLayout> = ({
     {
       title: "Remote Update",
       key: "remote-update",
+      iconComponent: (
+        <CloudUploadOutlined
+          width={30}
+          height={30}
+          size={30}
+          style={{ marginRight: 10 }}
+        />
+      ),
     },
   ];
   return (
@@ -112,6 +123,7 @@ const SettingsLayout: React.FC<ISettingsLayout> = ({
                 title={item.title}
                 active={Boolean(current === item.key)}
                 onClick={() => setCurrent(item.key)}
+                iconComponent={item.iconComponent}
               />
             ))}
           </nav>
