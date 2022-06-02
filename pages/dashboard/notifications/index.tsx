@@ -37,7 +37,7 @@ const DATA: ISummaryItem[] = [
   },
 ];
 
-const USERS = [
+const NOTIFICATION_TRANSACTIONS = [
   {
     key: "1",
     index: "1",
@@ -130,6 +130,22 @@ const USERS = [
   },
 ];
 
+const NOTIFICATION_SERVICES = [
+  {
+    index: 1,
+    merchantName: "Stan Instant",
+    merchantId: "8937389",
+    acquirer: "Zenith",
+    notificationClass: "staninstantnotifier",
+    reversalUrl: "https://reversal.stan.com",
+    url: "https://stan.com",
+    port: "8080",
+    key: "4RE5TX",
+    dateCreated: "2021-02-02 06:35:24PM",
+    status: "ACTIVE",
+  },
+];
+
 const Users: NextPage = () => {
   const [query, setQuery] = useState<string>("");
   const [userType, setUserType] = useState<string>("Users");
@@ -138,6 +154,7 @@ const Users: NextPage = () => {
   const [openToCalendar, setOpenToCalendar] = useState<boolean>(false);
   const [openUserModal, setOpenUserModal] = useState<boolean>(false);
   const [disableModal, setDisableModal] = useState<boolean>(false);
+  const [type, setType] = useState<string>("");
   const [user, setUser] = useState<any>();
   const [isEditUser, setIsEditUser] = useState<boolean>(false);
   const [openUserForm, setOpenUserForm] = useState<boolean>(false);
@@ -148,6 +165,7 @@ const Users: NextPage = () => {
   const [reversalURL, setReversalURL] = useState<string>("");
   const [url, setURL] = useState<string>("");
   const [port, setPort] = useState<string>("");
+  const [merchantId, setMerchantId] = useState<string>("");
 
   const columns = [
     { ellipsis: true, title: "S/N", dataIndex: "index", key: "index" },
@@ -272,6 +290,7 @@ const Users: NextPage = () => {
             onClick={() => {
               setUser(record);
               setOpenUserModal(true);
+              setType("transactions");
             }}
             className={styles.View}
           >
@@ -281,6 +300,139 @@ const Users: NextPage = () => {
             onClick={() => {
               setIsEditUser(true);
               setOpenUserForm(true);
+              setType("transactions");
+            }}
+            className={styles.Edit}
+          >
+            Edit
+          </button>
+        </div>
+      ),
+    },
+  ];
+
+  const notificationServiceColumns = [
+    { ellipsis: true, title: "S/N", dataIndex: "index", key: "index" },
+    {
+      ellipsis: true,
+      title: "MERCHANT NAME",
+      dataIndex: "merchantName",
+      key: "merchantName",
+    },
+    {
+      ellipsis: true,
+      title: "Merchant ID",
+      dataIndex: "merchantId",
+      key: "merchantId",
+    },
+    {
+      ellipsis: true,
+      title: "Acquirer",
+      dataIndex: "acquirer",
+      key: "acquirer",
+    },
+    {
+      ellipsis: true,
+      title: "NOTIFICATION CLASS",
+      dataIndex: "notificationClass",
+      key: "notificationClass",
+    },
+    {
+      ellipsis: true,
+      title: "REVERSAL URL",
+      dataIndex: "reversalUrl",
+      key: "reversalUrl",
+    },
+    {
+      ellipsis: true,
+      title: "URL",
+      dataIndex: "url",
+      key: "url",
+    },
+    {
+      ellipsis: true,
+      title: "PORT",
+      dataIndex: "port",
+      key: "port",
+    },
+    {
+      ellipsis: true,
+      title: "KEY",
+      dataIndex: "key",
+      key: "key",
+    },
+    {
+      ellipsis: true,
+      title: "DATE CREATED",
+      dataIndex: "dateCreated",
+      key: "dateCreated",
+    },
+    // {
+    //   ellipsis: true,
+    //   title: "AMOUNT",
+    //   dataIndex: "amount",
+    //   key: "amount",
+    //   render: (text: string) => (
+    //     <p style={{ marginBottom: 0 }}>&#8358;{text}</p>
+    //   ),
+    // },
+    // {
+    //   ellipsis: true,
+    //   title: "PSTSP FEE",
+    //   dataIndex: "pstspFee",
+    //   key: "pstspFee",
+    //   render: (text: string) => (
+    //     <p style={{ marginBottom: 0 }}>&#8358;{text}</p>
+    //   ),
+    // },
+    // {
+    //   ellipsis: true,
+    //   title: "TMO FEE",
+    //   dataIndex: "tmoFee",
+    //   key: "tmoFee",
+    //   render: (text: string) => (
+    //     <p style={{ marginBottom: 0 }}>&#8358;{text}</p>
+    //   ),
+    // },
+    {
+      ellipsis: true,
+      title: "STATUS",
+      dataIndex: "status",
+      key: "status",
+      render: (text: string, record: any) => {
+        return text === "ACTIVE" ? (
+          <div className={styles.ActiveStatus}>{text}</div>
+        ) : (
+          <div className={styles.InActiveStatus}>{text}</div>
+        );
+      },
+    },
+    {
+      ellipsis: true,
+      title: "",
+      render: (text: string, record: any) => (
+        <div className={styles.Actions}>
+          <button
+            onClick={() => setDisableModal(true)}
+            className={styles.Disable}
+          >
+            Disable
+          </button>
+          <button
+            onClick={() => {
+              setUser(record);
+              setOpenUserModal(true);
+              setType("service");
+            }}
+            className={styles.View}
+          >
+            View
+          </button>
+          <button
+            onClick={() => {
+              setIsEditUser(true);
+              setOpenUserForm(true);
+              setType("service");
             }}
             className={styles.Edit}
           >
@@ -482,8 +634,12 @@ const Users: NextPage = () => {
       <Modal
         title={
           isEditUser
-            ? "Edit Notification Service"
-            : "Create Notification Service"
+            ? `Edit Notification ${
+                type === "transactions" ? "Transaction" : "Service"
+              }`
+            : `Create Notification ${
+                type === "transactions" ? "Transaction" : "Service"
+              }`
         }
         style={{ textAlign: "center" }}
         visible={openUserForm}
@@ -491,49 +647,103 @@ const Users: NextPage = () => {
         onCancel={() => setOpenUserForm(false)}
         footer={<Button className={styles.ConfirmButton}>Confirm</Button>}
       >
-        <div className={styles.FormControl}>
-          <p>Merchant</p>
-          <Input
-            value={merchant}
-            onChange={(e) => setMerchant(e.target.value)}
-          />
-        </div>
-        <div className={styles.FormControl}>
-          <p>Accquirer</p>
-          <Input
-            value={accquirer}
-            onChange={(e) => setAccquirer(e.target.value)}
-          />
-        </div>
-        <div className={styles.FormControl}>
-          <p>Notification class</p>
-          <Input
-            value={notificationClass}
-            onChange={(e) => setNotificationClass(e.target.value)}
-          />
-        </div>
-        <div className={styles.FormControl}>
-          <p>Key</p>
-          <Input value={key} onChange={(e) => setKey(e.target.value)} />
-        </div>
-        <div className={styles.FormControl}>
-          <p>Reversal URL</p>
-          <Input
-            value={reversalURL}
-            onChange={(e) => setReversalURL(e.target.value)}
-          />
-        </div>
-        <div className={styles.FormControl}>
-          <p>URL</p>
-          <Input value={url} onChange={(e) => setURL(e.target.value)} />
-        </div>
-        <div className={styles.FormControl}>
-          <p>PORT</p>
-          <Input value={port} onChange={(e) => setPort(e.target.value)} />
-        </div>
+        {type === "transactions" ? (
+          <>
+            <div className={styles.FormControl}>
+              <p>Merchant</p>
+              <Input
+                value={merchant}
+                onChange={(e) => setMerchant(e.target.value)}
+              />
+            </div>
+            <div className={styles.FormControl}>
+              <p>Accquirer</p>
+              <Input
+                value={accquirer}
+                onChange={(e) => setAccquirer(e.target.value)}
+              />
+            </div>
+            <div className={styles.FormControl}>
+              <p>Notification class</p>
+              <Input
+                value={notificationClass}
+                onChange={(e) => setNotificationClass(e.target.value)}
+              />
+            </div>
+            <div className={styles.FormControl}>
+              <p>Key</p>
+              <Input value={key} onChange={(e) => setKey(e.target.value)} />
+            </div>
+            <div className={styles.FormControl}>
+              <p>Reversal URL</p>
+              <Input
+                value={reversalURL}
+                onChange={(e) => setReversalURL(e.target.value)}
+              />
+            </div>
+            <div className={styles.FormControl}>
+              <p>URL</p>
+              <Input value={url} onChange={(e) => setURL(e.target.value)} />
+            </div>
+            <div className={styles.FormControl}>
+              <p>PORT</p>
+              <Input value={port} onChange={(e) => setPort(e.target.value)} />
+            </div>
+          </>
+        ) : (
+          <>
+            <div className={styles.FormControl}>
+              <p>Merchant Name</p>
+              <Input
+                value={merchant}
+                onChange={(e) => setMerchant(e.target.value)}
+              />
+            </div>
+            <div className={styles.FormControl}>
+              <p>Merchant ID</p>
+              <Input
+                value={merchantId}
+                onChange={(e) => setMerchantId(e.target.value)}
+              />
+            </div>
+            <div className={styles.FormControl}>
+              <p>Acquirer</p>
+              <Input
+                value={accquirer}
+                onChange={(e) => setAccquirer(e.target.value)}
+              />
+            </div>
+            <div className={styles.FormControl}>
+              <p>Notification class</p>
+              <Input
+                value={notificationClass}
+                onChange={(e) => setNotificationClass(e.target.value)}
+              />
+            </div>
+            <div className={styles.FormControl}>
+              <p>Reversal URL</p>
+              <Input
+                value={reversalURL}
+                onChange={(e) => setReversalURL(e.target.value)}
+              />
+            </div>
+            <div className={styles.FormControl}>
+              <p>URL</p>
+              <Input value={url} onChange={(e) => setURL(e.target.value)} />
+            </div>
+            <div className={styles.FormControl}>
+              <p>PORT</p>
+              <Input value={port} onChange={(e) => setPort(e.target.value)} />
+            </div>
+            <div className={styles.FormControl}>
+              <p>KEY</p>
+              <Input value={key} onChange={(e) => setKey(e.target.value)} />
+            </div>
+          </>
+        )}
       </Modal>
       <Modal
-        title="Disable Notification"
+        title="Disable Notification Service"
         style={{ textAlign: "center" }}
         visible={disableModal}
         closeIcon={<img src="/icons/close-square.svg" alt="close button" />}
@@ -542,8 +752,8 @@ const Users: NextPage = () => {
       >
         <div className={styles.DisableModal}>
           <img src="/images/info.png" />
-          <h3>Disable User</h3>
-          <p>Are you sure you want to disable this user</p>
+          <h3>Disable Notification Service</h3>
+          <p>Are you sure you want to disable this notifiation service</p>
         </div>
       </Modal>
       <div className={styles.TitleContainer}>
@@ -560,6 +770,7 @@ const Users: NextPage = () => {
           onClick={() => {
             setOpenUserForm(true);
             setIsEditUser(false);
+            setType("service");
           }}
           icon={<img style={{ marginRight: 5 }} src="/icons/add-square.svg" />}
         >
@@ -583,10 +794,39 @@ const Users: NextPage = () => {
       </Row>
       <div className={styles.TableContainer}>
         <Table
+          columns={notificationServiceColumns}
+          data={NOTIFICATION_SERVICES}
+          title="List of Notification Transactions"
+          // filterComponent={filterComponent}
+        />
+      </div>
+      <div style={{ marginTop: 50 }} className={styles.TitleContainer}>
+        <h1 className={styles.Title}>Notification Transactions</h1>
+        <Button
+          style={{
+            backgroundColor: "#2085C9",
+            color: "white",
+            display: "flex",
+            alignItems: "center",
+            borderRadius: 8,
+            padding: 20,
+          }}
+          onClick={() => {
+            setOpenUserForm(true);
+            setIsEditUser(false);
+            setType("transactions");
+          }}
+          icon={<img style={{ marginRight: 5 }} src="/icons/add-square.svg" />}
+        >
+          Create Notification transaction
+        </Button>
+      </div>
+      <div className={styles.TableContainer}>
+        <Table
           columns={columns}
-          data={USERS}
+          data={NOTIFICATION_TRANSACTIONS}
           viewAllLink="/dashboard/notifications/all"
-          title="List of Notification Services"
+          title="List of Notification Transactions"
           filterComponent={filterComponent}
         />
       </div>

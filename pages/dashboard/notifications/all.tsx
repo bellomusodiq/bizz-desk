@@ -609,7 +609,7 @@ const AllUsers: NextPage = () => {
         <Table
           columns={columns}
           data={USERS}
-          title="List of Notification Services"
+          title="List of Notification Transactions"
           filterComponent={filterComponent}
         />
       </div>
