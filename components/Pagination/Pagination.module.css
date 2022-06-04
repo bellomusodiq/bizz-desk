@@ -1,0 +1,90 @@
+.Pagination {
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Description {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.02em;
+  color: #191716;
+}
+.Dropdown {
+  background-color: inherit;
+  border-radius: 4px;
+  padding: 5px 5px;
+  border-color: #425c8a2c;
+  display: flex;
+  align-items: center;
+}
+.Dropdown > span {
+  color: #425d8a;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 14px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.DropdownIcon {
+  margin-top: 5px;
+}
+.Controls {
+  display: flex;
+  align-items: center;
+}
+.RowsPerPage {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.02em;
+  color: #191716;
+  margin: 0 10px;
+}
+.PreviousInactive,
+.Previous,
+.Next,
+.NextInactive {
+  margin: 0 5px;
+  cursor: pointer;
+  border: none;
+}
+.PreviousInactive,
+.NextInactive {
+  width: 32px;
+  height: 32px;
+  background: #efefef;
+  border-radius: 4px;
+}
+.Previous,
+.Next {
+  width: 32px;
+  height: 32px;
+  background: #2085C9;
+  border-radius: 4px;
+}
+.Pages {
+  display: flex;
+  align-items: center;
+}
+.Page,
+.PageActive {
+  margin: 0 5px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+.PageActive, .Page:hover {
+  color: #2085C9
+}
+.More {
+  align-self: flex-end;
+  margin: 0 5px;
+}
+.InActiveIcon {
+  color: #8D9091;
+}
+.ActiveIcon {
+  color: white;
+}

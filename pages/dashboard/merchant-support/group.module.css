@@ -1,0 +1,40 @@
+.Container {
+  padding: 20px;
+}
+.ActiveStatus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  background: #e9fbf9;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #136f63;
+  width: fit-content;
+}
+.InActiveStatus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  background: #fdf6ef;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #eda95a;
+}
+.Header {
+  display: flex;
+}
+.Header > img {
+  width: 10%;
+  margin-right: 20px;
+}
+.HeaderTexts {
+  width: 100%;
+}

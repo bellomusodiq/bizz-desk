@@ -1,11 +1,38 @@
 import { DownOutlined, SearchOutlined } from "@ant-design/icons";
-import { Button, Calendar, Divider, Dropdown, Input, Menu, Modal, Select } from "antd";
+import {
+  Button,
+  Calendar,
+  Divider,
+  Dropdown,
+  Input,
+  Menu,
+  Modal,
+  Row,
+  Select,
+  Space,
+  Tag,
+} from "antd";
 import { NextPage } from "next";
 import React, { useState } from "react";
-import Pagination from "../../../components/Pagination/Pagination";
+import SummaryCard from "../../../components/SummaryCard/SummaryCard";
+import { ISummaryItem } from "../../../components/SummaryCard/types";
 import Table from "../../../components/Table/Table";
 import DashboardLayout from "../../../layouts/DashboardLayout/DashboardLayout";
 import styles from "./transactions.module.css";
+
+const DATA: ISummaryItem[] = [
+  {
+    title: "TOTAL AMOUNT REVERSED",
+    percentage: 3.5,
+    totalCount: "450",
+    isNaira: true,
+  },
+  {
+    title: "TOTAL TRANSACTIONS REVERSED",
+    percentage: 3.1,
+    totalCount: "22.3k",
+  },
+];
 
 const USERS = [
   {
@@ -13,7 +40,7 @@ const USERS = [
     index: "1",
     merchantName: "Olu and Sons",
     rnn: "8937389",
-    terminalRef: "Zenith",
+    terminalRef: "PAX|5C546961 | gopos 1.0.0 ",
     terminalId: "2033AJM7",
     bank: "UBA",
     panAccount: "200*****342",
@@ -23,7 +50,6 @@ const USERS = [
     transactionType: "Purchase",
     amount: "10.00",
     dateTime: "2022-02-02 06:35:24PM",
-    status: "FAILED",
     currency: "566",
     bankCharges: "2.5",
     recievableAmount: "9.5",
@@ -34,7 +60,7 @@ const USERS = [
     index: "2",
     merchantName: "Olu and Sons",
     rnn: "8937389",
-    terminalRef: "Zenith",
+    terminalRef: "PAX|5C546961 | gopos 1.0.0 ",
     terminalId: "2033AJM7",
     bank: "UBA",
     panAccount: "200*****342",
@@ -44,7 +70,6 @@ const USERS = [
     transactionType: "Purchase",
     amount: "10.00",
     dateTime: "2022-02-02 06:35:24PM",
-    status: "FAILED",
     currency: "566",
     bankCharges: "2.5",
     recievableAmount: "9.5",
@@ -55,7 +80,7 @@ const USERS = [
     index: "3",
     merchantName: "Olu and Sons",
     rnn: "8937389",
-    terminalRef: "Zenith",
+    terminalRef: "PAX|5C546961 | gopos 1.0.0 ",
     terminalId: "2033AJM7",
     bank: "UBA",
     panAccount: "200*****342",
@@ -65,7 +90,6 @@ const USERS = [
     transactionType: "Purchase",
     amount: "10.00",
     dateTime: "2022-02-02 06:35:24PM",
-    status: "FAILED",
     currency: "566",
     bankCharges: "2.5",
     recievableAmount: "9.5",
@@ -76,7 +100,7 @@ const USERS = [
     index: "4",
     merchantName: "Olu and Sons",
     rnn: "8937389",
-    terminalRef: "Zenith",
+    terminalRef: "PAX|5C546961 | gopos 1.0.0 ",
     terminalId: "2033AJM7",
     bank: "UBA",
     panAccount: "200*****342",
@@ -86,7 +110,6 @@ const USERS = [
     transactionType: "Purchase",
     amount: "10.00",
     dateTime: "2022-02-02 06:35:24PM",
-    status: "FAILED",
     currency: "566",
     bankCharges: "2.5",
     recievableAmount: "9.5",
@@ -97,7 +120,7 @@ const USERS = [
     index: "5",
     merchantName: "Olu and Sons",
     rnn: "8937389",
-    terminalRef: "Zenith",
+    terminalRef: "PAX|5C546961 | gopos 1.0.0 ",
     terminalId: "2033AJM7",
     bank: "UBA",
     panAccount: "200*****342",
@@ -107,7 +130,6 @@ const USERS = [
     transactionType: "Purchase",
     amount: "10.00",
     dateTime: "2022-02-02 06:35:24PM",
-    status: "FAILED",
     currency: "566",
     bankCharges: "2.5",
     recievableAmount: "9.5",
@@ -115,7 +137,7 @@ const USERS = [
   },
 ];
 
-const AllUsers: NextPage = () => {
+const Users: NextPage = () => {
   const [query, setQuery] = useState<string>("");
   const [userType, setUserType] = useState<string>("Users");
   const [status, setStatus] = useState<string>("All");
@@ -231,22 +253,9 @@ const AllUsers: NextPage = () => {
     },
     {
       ellipsis: true,
-      title: "DATE/TIME",
+      title: "REVERSAL DATE/TIME",
       dataIndex: "dateTime",
       key: "dateTime",
-    },
-    {
-      ellipsis: true,
-      title: "STATUS",
-      dataIndex: "status",
-      key: "status",
-      render: (text: string, record: any) => {
-        return text === "APPROVED" ? (
-          <div className={styles.ActiveStatus}>{text}</div>
-        ) : (
-          <div className={styles.InActiveStatus}>{text}</div>
-        );
-      },
     },
     {
       ellipsis: true,
@@ -581,17 +590,35 @@ const AllUsers: NextPage = () => {
           <p>Are you sure you want to disable this user</p>
         </div>
       </Modal>
+      <div className={styles.TitleContainer}>
+        <h1 className={styles.Title}>Reversal</h1>
+      </div>
+      <Row wrap gutter={[20, 20]}>
+        {DATA.map((summary, i) => (
+          <SummaryCard
+            key={i}
+            title={summary.title}
+            totalCount={summary.totalCount}
+            isNaira={summary.isNaira}
+            percentage={summary.percentage}
+            xs={24}
+            sm={24}
+            md={12}
+            lg={12}
+          />
+        ))}
+      </Row>
       <div className={styles.TableContainer}>
         <Table
           columns={columns}
           data={USERS}
-          title="List of Chargebacks"
+          viewAllLink="/dashboard/reversal/all"
+          title="List of Reversals"
           filterComponent={filterComponent}
         />
       </div>
-      <Pagination />
     </DashboardLayout>
   );
 };
 
-export default AllUsers;
+export default Users;

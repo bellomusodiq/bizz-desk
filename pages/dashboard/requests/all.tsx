@@ -1,121 +1,89 @@
 import { DownOutlined, SearchOutlined } from "@ant-design/icons";
-import { Button, Calendar, Divider, Dropdown, Input, Menu, Modal, Select } from "antd";
+import {
+  Button,
+  Calendar,
+  Col,
+  Divider,
+  Dropdown,
+  Input,
+  Menu,
+  Modal,
+  Row,
+  Select,
+  Space,
+  Tag,
+} from "antd";
 import { NextPage } from "next";
 import React, { useState } from "react";
+import Card from "../../../components/Card/Card";
 import Pagination from "../../../components/Pagination/Pagination";
+import SummaryCard from "../../../components/SummaryCard/SummaryCard";
+import { ISummaryItem } from "../../../components/SummaryCard/types";
 import Table from "../../../components/Table/Table";
 import DashboardLayout from "../../../layouts/DashboardLayout/DashboardLayout";
 import styles from "./transactions.module.css";
+
+const CardItem: React.FC<{ title: string; value: string }> = ({
+  title,
+  value,
+}) => (
+  <Card>
+    <div className={styles.CardItem}>
+      <p className={styles.CardItemTitle}>{title}</p>
+      <p className={styles.CardItemValue}>{value}</p>
+    </div>
+  </Card>
+);
 
 const USERS = [
   {
     key: "1",
     index: "1",
-    merchantName: "Olu and Sons",
-    rnn: "8937389",
-    terminalRef: "Zenith",
-    terminalId: "2033AJM7",
-    bank: "UBA",
-    panAccount: "200*****342",
-    cardType: "Verve",
-    stan: "98765",
-    authCode: "897889",
-    transactionType: "Purchase",
-    amount: "10.00",
-    dateTime: "2022-02-02 06:35:24PM",
-    status: "FAILED",
-    currency: "566",
-    bankCharges: "2.5",
-    recievableAmount: "9.5",
-    responseCode: "00",
+    adminName: "Olu and Sons",
+    category: "Users",
+    action: "Create",
+    description: "this is a description",
+    dateCreated: "2022-02-02 06:35:24PM",
   },
   {
     key: "2",
     index: "2",
-    merchantName: "Olu and Sons",
-    rnn: "8937389",
-    terminalRef: "Zenith",
-    terminalId: "2033AJM7",
-    bank: "UBA",
-    panAccount: "200*****342",
-    cardType: "Verve",
-    stan: "98765",
-    authCode: "897889",
-    transactionType: "Purchase",
-    amount: "10.00",
-    dateTime: "2022-02-02 06:35:24PM",
-    status: "FAILED",
-    currency: "566",
-    bankCharges: "2.5",
-    recievableAmount: "9.5",
-    responseCode: "00",
+    adminName: "Olu and Sons",
+    category: "Users",
+    action: "Create",
+    description: "this is a description",
+    dateCreated: "2022-02-02 06:35:24PM",
   },
   {
     key: "3",
     index: "3",
-    merchantName: "Olu and Sons",
-    rnn: "8937389",
-    terminalRef: "Zenith",
-    terminalId: "2033AJM7",
-    bank: "UBA",
-    panAccount: "200*****342",
-    cardType: "Verve",
-    stan: "98765",
-    authCode: "897889",
-    transactionType: "Purchase",
-    amount: "10.00",
-    dateTime: "2022-02-02 06:35:24PM",
-    status: "FAILED",
-    currency: "566",
-    bankCharges: "2.5",
-    recievableAmount: "9.5",
-    responseCode: "00",
+    adminName: "Olu and Sons",
+    category: "Users",
+    action: "Create",
+    description: "this is a description",
+    dateCreated: "2022-02-02 06:35:24PM",
   },
   {
     key: "4",
     index: "4",
-    merchantName: "Olu and Sons",
-    rnn: "8937389",
-    terminalRef: "Zenith",
-    terminalId: "2033AJM7",
-    bank: "UBA",
-    panAccount: "200*****342",
-    cardType: "Verve",
-    stan: "98765",
-    authCode: "897889",
-    transactionType: "Purchase",
-    amount: "10.00",
-    dateTime: "2022-02-02 06:35:24PM",
-    status: "FAILED",
-    currency: "566",
-    bankCharges: "2.5",
-    recievableAmount: "9.5",
-    responseCode: "00",
+    adminName: "Olu and Sons",
+    category: "Users",
+    action: "Create",
+    description: "this is a description",
+    dateCreated: "2022-02-02 06:35:24PM",
   },
   {
     key: "5",
     index: "5",
-    merchantName: "Olu and Sons",
-    rnn: "8937389",
-    terminalRef: "Zenith",
-    terminalId: "2033AJM7",
-    bank: "UBA",
-    panAccount: "200*****342",
-    cardType: "Verve",
-    stan: "98765",
-    authCode: "897889",
-    transactionType: "Purchase",
-    amount: "10.00",
-    dateTime: "2022-02-02 06:35:24PM",
-    status: "FAILED",
-    currency: "566",
-    bankCharges: "2.5",
-    recievableAmount: "9.5",
-    responseCode: "00",
+    adminName: "Olu and Sons",
+    category: "Users",
+    action: "Create",
+    description: "this is a description",
+    dateCreated: "2022-02-02 06:35:24PM",
   },
 ];
 
-const AllUsers: NextPage = () => {
+const Users: NextPage = () => {
   const [query, setQuery] = useState<string>("");
   const [userType, setUserType] = useState<string>("Users");
   const [status, setStatus] = useState<string>("All");
@@ -123,137 +91,45 @@ const AllUsers: NextPage = () => {
   const [openToCalendar, setOpenToCalendar] = useState<boolean>(false);
   const [openUserModal, setOpenUserModal] = useState<boolean>(false);
   const [disableModal, setDisableModal] = useState<boolean>(false);
-  const [user, setUser] = useState<any>();
   const [isEditUser, setIsEditUser] = useState<boolean>(false);
   const [openUserForm, setOpenUserForm] = useState<boolean>(false);
-  const [merchant, setMerchant] = useState<string>("");
-  const [accquirer, setAccquirer] = useState<string>("");
-  const [notificationClass, setNotificationClass] = useState<string>("");
+  const [delineModal, setDeclineModal] = useState<boolean>(false);
+  const [approvedModal, setApprovedModal] = useState<boolean>(false);
   const [key, setKey] = useState<string>("");
-  const [reversalURL, setReversalURL] = useState<string>("");
-  const [url, setURL] = useState<string>("");
-  const [port, setPort] = useState<string>("");
 
   const columns = [
     { ellipsis: true, title: "S/N", dataIndex: "index", key: "index" },
     {
       ellipsis: true,
-      title: "MERCHANT NAME",
-      dataIndex: "merchantName",
-      key: "merchantName",
+      title: "ADMIN NAME",
+      dataIndex: "adminName",
+      key: "adminName",
     },
     {
       ellipsis: true,
-      title: "RNN",
-      dataIndex: "rnn",
-      key: "rnn",
+      title: "CATEGORY",
+      dataIndex: "category",
+      key: "category",
     },
     {
       ellipsis: true,
-      title: "TERMINAL REF",
-      dataIndex: "terminalRef",
-      key: "terminalRef",
+      title: "ACTION",
+      dataIndex: "action",
+      key: "action",
     },
     {
       ellipsis: true,
-      title: "TERMINAL ID",
-      dataIndex: "terminalId",
-      key: "terminalId",
+      title: "DESCRIPTION",
+      dataIndex: "description",
+      key: "description",
     },
     {
       ellipsis: true,
-      title: "BANK",
-      dataIndex: "bank",
-      key: "bank",
+      title: "DATE CREATED",
+      dataIndex: "dateCreated",
+      key: "dateCreated",
     },
-    {
-      ellipsis: true,
-      title: "PAN ACCOUNT",
-      dataIndex: "panAccount",
-      key: "panAccount",
-    },
-    {
-      ellipsis: true,
-      title: "CARD TYPE",
-      dataIndex: "cardType",
-      key: "cardType",
-    },
-    {
-      ellipsis: true,
-      title: "CURRENCY",
-      dataIndex: "currency",
-      key: "currency",
-    },
-    {
-      ellipsis: true,
-      title: "STAN",
-      dataIndex: "stan",
-      key: "stan",
-    },
-    {
-      ellipsis: true,
-      title: "AUTH CODE",
-      dataIndex: "authCode",
-      key: "authCode",
-    },
-    {
-      ellipsis: true,
-      title: "TRANSACTION TYPE",
-      dataIndex: "transactionType",
-      key: "transactionType",
-    },
-    {
-      ellipsis: true,
-      title: "AMOUNT",
-      dataIndex: "amount",
-      key: "amount",
-      render: (text: string) => (
-        <p style={{ marginBottom: 0 }}>&#8358;{text}</p>
-      ),
-    },
-    {
-      ellipsis: true,
-      title: "BANK CHARGES",
-      dataIndex: "bankCharges",
-      key: "bankCharges",
-      render: (text: string) => (
-        <p style={{ marginBottom: 0 }}>&#8358;{text}</p>
-      ),
-    },
-    {
-      ellipsis: true,
-      title: "RECIEVABLE AMOUNT",
-      dataIndex: "recievableAmount",
-      key: "recievableAmount",
-      render: (text: string) => (
-        <p style={{ marginBottom: 0 }}>&#8358;{text}</p>
-      ),
-    },
-    {
-      ellipsis: true,
-      title: "DATE/TIME",
-      dataIndex: "dateTime",
-      key: "dateTime",
-    },
-    {
-      ellipsis: true,
-      title: "STATUS",
-      dataIndex: "status",
-      key: "status",
-      render: (text: string, record: any) => {
-        return text === "APPROVED" ? (
-          <div className={styles.ActiveStatus}>{text}</div>
-        ) : (
-          <div className={styles.InActiveStatus}>{text}</div>
-        );
-      },
-    },
-    {
-      ellipsis: true,
-      title: "RESPONSE CODE",
-      dataIndex: "responseCode",
-      key: "responseCode",
-    },
+
     {
       ellipsis: true,
       title: "",
@@ -261,21 +137,28 @@ const AllUsers: NextPage = () => {
         <div className={styles.Actions}>
           <button
             onClick={() => {
-              setUser(record);
-              setOpenUserModal(true);
+              setApprovedModal(true);
             }}
             className={styles.View}
           >
-            View
+            Approve
           </button>
           <button
             onClick={() => {
-              setIsEditUser(true);
+              setDeclineModal(true);
+            }}
+            className={styles.Disable}
+          >
+            Decline
+          </button>
+          <button
+            onClick={() => {
               setOpenUserForm(true);
+              setIsEditUser(false);
             }}
             className={styles.Edit}
           >
-            Print
+            View
           </button>
         </div>
       ),
@@ -419,6 +302,41 @@ const AllUsers: NextPage = () => {
   return (
     <DashboardLayout>
       <Modal
+        title="Request Approved"
+        style={{ textAlign: "center" }}
+        visible={approvedModal}
+        closeIcon={<img src="/icons/close-square.svg" alt="close button" />}
+        onCancel={() => setApprovedModal(false)}
+        footer={
+          <Button
+            onClick={() => setApprovedModal(false)}
+            className={styles.ProceedButton}
+          >
+            Proceed
+          </Button>
+        }
+      >
+        <div className={styles.DisableModal}>
+          <img src="/images/success.png" />
+          <h3>Request Approved</h3>
+          <p>You have Approved Ola Eniorirufoko’s request to edit user.</p>
+        </div>
+      </Modal>
+      <Modal
+        title="Request Declined"
+        style={{ textAlign: "center" }}
+        visible={delineModal}
+        closeIcon={<img src="/icons/close-square.svg" alt="close button" />}
+        onCancel={() => setDeclineModal(false)}
+        footer={<Button className={styles.DisableButton}>Proceed</Button>}
+      >
+        <div className={styles.DisableModal}>
+          <img src="/images/info.png" />
+          <h3>Request Declined</h3>
+          <p>You have denied Ola Eniorirufoko’s request to edit user.</p>
+        </div>
+      </Modal>
+      <Modal
         style={{ textAlign: "center" }}
         title="Transaction Detail"
         visible={openUserModal}
@@ -515,11 +433,7 @@ const AllUsers: NextPage = () => {
         </p>
       </Modal>
       <Modal
-        title={
-          isEditUser
-            ? "Edit Notification Service"
-            : "Create Notification Service"
-        }
+        title="View Request"
         style={{ textAlign: "center" }}
         visible={openUserForm}
         closeIcon={<img src="/icons/close-square.svg" alt="close button" />}
@@ -527,44 +441,29 @@ const AllUsers: NextPage = () => {
         footer={<Button className={styles.ConfirmButton}>Confirm</Button>}
       >
         <div className={styles.FormControl}>
-          <p>Merchant</p>
-          <Input
-            value={merchant}
-            onChange={(e) => setMerchant(e.target.value)}
-          />
+          <p>Admin</p>
+          <Input value={"Ola Eniorirufoko"} />
         </div>
         <div className={styles.FormControl}>
-          <p>Accquirer</p>
-          <Input
-            value={accquirer}
-            onChange={(e) => setAccquirer(e.target.value)}
-          />
+          <p>Category</p>
+          <Input value={"Users"} />
         </div>
         <div className={styles.FormControl}>
-          <p>Notification class</p>
-          <Input
-            value={notificationClass}
-            onChange={(e) => setNotificationClass(e.target.value)}
-          />
+          <p>Action</p>
+          <Input value={"edit"} />
         </div>
         <div className={styles.FormControl}>
           <p>Key</p>
           <Input value={key} onChange={(e) => setKey(e.target.value)} />
         </div>
         <div className={styles.FormControl}>
-          <p>Reversal URL</p>
-          <Input
-            value={reversalURL}
-            onChange={(e) => setReversalURL(e.target.value)}
+          <p>Description</p>
+          <Input.TextArea
+            value={
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nibh commodo, eget sit fringilla odio dolor, in ullamcorper. Sed enim sed mattis dolor id hac in. Quis vel elementum habitant sagittis, vitae. Tristique sit consectetur justo elementum, tempor metus sed neque. Lorem amet leo nunc arcu, quam non nulla nisi, nulla."
+            }
+            autoSize={{ minRows: 6, maxRows: 6 }}
           />
-        </div>
-        <div className={styles.FormControl}>
-          <p>URL</p>
-          <Input value={url} onChange={(e) => setURL(e.target.value)} />
-        </div>
-        <div className={styles.FormControl}>
-          <p>PORT</p>
-          <Input value={port} onChange={(e) => setPort(e.target.value)} />
         </div>
       </Modal>
       <Modal
@@ -581,11 +480,13 @@ const AllUsers: NextPage = () => {
           <p>Are you sure you want to disable this user</p>
         </div>
       </Modal>
+
       <div className={styles.TableContainer}>
         <Table
           columns={columns}
           data={USERS}
-          title="List of Chargebacks"
+          viewAllLink="/dashboard/requests/all"
+          title="List of Requests"
           filterComponent={filterComponent}
         />
       </div>
@@ -594,4 +495,4 @@ const AllUsers: NextPage = () => {
   );
 };
 
-export default AllUsers;
+export default Users;

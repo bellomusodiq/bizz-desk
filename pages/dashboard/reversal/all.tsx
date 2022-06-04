@@ -2,7 +2,6 @@ import { DownOutlined, SearchOutlined } from "@ant-design/icons";
 import { Button, Calendar, Divider, Dropdown, Input, Menu, Modal, Select } from "antd";
 import { NextPage } from "next";
 import React, { useState } from "react";
-import Pagination from "../../../components/Pagination/Pagination";
 import Table from "../../../components/Table/Table";
 import DashboardLayout from "../../../layouts/DashboardLayout/DashboardLayout";
 import styles from "./transactions.module.css";
@@ -231,22 +230,9 @@ const AllUsers: NextPage = () => {
     },
     {
       ellipsis: true,
-      title: "DATE/TIME",
+      title: "REVERSAL DATE/TIME",
       dataIndex: "dateTime",
       key: "dateTime",
-    },
-    {
-      ellipsis: true,
-      title: "STATUS",
-      dataIndex: "status",
-      key: "status",
-      render: (text: string, record: any) => {
-        return text === "APPROVED" ? (
-          <div className={styles.ActiveStatus}>{text}</div>
-        ) : (
-          <div className={styles.InActiveStatus}>{text}</div>
-        );
-      },
     },
     {
       ellipsis: true,
@@ -585,11 +571,10 @@ const AllUsers: NextPage = () => {
         <Table
           columns={columns}
           data={USERS}
-          title="List of Chargebacks"
+          title="List of Reversals"
           filterComponent={filterComponent}
         />
       </div>
-      <Pagination />
     </DashboardLayout>
   );
 };
