@@ -8,6 +8,7 @@ import Communication from "../../../components/Communication/Communication";
 import Currency from "../../../components/Currency/Currency";
 import Host from "../../../components/Host/Host";
 import MerchantBandSettings from "../../../components/MerchantBandSettings/MerchantBandSettings";
+import Profile from "../../../components/Profile/Profile";
 import Reciept from "../../../components/Reciept/Reciept";
 import RemoteUpdate from "../../../components/RemoteUpdate/RemoteUpdate";
 import RolesSettings from "../../../components/RolesSettings/RolesSettings";
@@ -30,6 +31,7 @@ const Settings: NextPage = () => {
       {current === "host" && <Host />}
       {current === "card" && <CardSettings />}
       {current === "remote-update" && <RemoteUpdate />}
+      {current === "profile" && <Profile />}
     </SettingsLayout>
   );
 };

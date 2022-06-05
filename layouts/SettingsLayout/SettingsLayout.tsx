@@ -1,4 +1,4 @@
-import { CloudUploadOutlined } from "@ant-design/icons";
+import { CloudUploadOutlined, UserOutlined } from "@ant-design/icons";
 import { Col, Row } from "antd";
 import React, { useState } from "react";
 import DashboardLayout from "../DashboardLayout/DashboardLayout";
@@ -103,6 +103,18 @@ const SettingsLayout: React.FC<ISettingsLayout> = ({
       key: "remote-update",
       iconComponent: (
         <CloudUploadOutlined
+          width={30}
+          height={30}
+          size={30}
+          style={{ marginRight: 10 }}
+        />
+      ),
+    },
+    {
+      title: "Profile",
+      key: "profile",
+      iconComponent: (
+        <UserOutlined
           width={30}
           height={30}
           size={30}

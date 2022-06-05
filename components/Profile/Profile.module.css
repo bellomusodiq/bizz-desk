@@ -1,0 +1,17 @@
+.FormControl {
+  text-align: left;
+  margin-bottom: 24px;
+}
+/* .FormControl input.ant-input {
+  padding: 5px 15px !important;
+} */
+.FormControl > p {
+  margin-bottom: 5px;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 16px;
+  color: #454d54;
+}
+.Header {
+  text-align: center;
+}
