@@ -76,6 +76,19 @@
     height: 100vh;
   }
 }
+.Banner {
+  justify-self: flex-end;
+  right: 15%;
+  position: absolute;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: -0.025em;
+  color: #fceae8;
+  background-color: #ED6A5A;
+  padding: 3px;
+  border-radius: 50%;
+}
 @media screen and (max-width: 500px) {
   .SideNavMobile {
     width: 70vw;

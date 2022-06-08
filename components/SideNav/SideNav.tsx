@@ -11,6 +11,7 @@ const LinkItem: React.FC<LinkItemProps> = ({
   onClick,
   icon,
   active,
+  bannerNumber,
 }) => {
   const [isHover, setIsHover] = useState<boolean>(false);
   return path ? (
@@ -34,6 +35,7 @@ const LinkItem: React.FC<LinkItemProps> = ({
         >
           {title}
         </span>
+        {bannerNumber && <span className={styles.Banner}>{bannerNumber}</span>}
       </div>
     </Link>
   ) : (
@@ -76,6 +78,7 @@ const SideNav: React.FC<ISideNav> = ({ show, closeSideNav }) => {
         icon="message-question"
         path="/dashboard/requests"
         active={"/dashboard/requests" === router.pathname}
+        bannerNumber={20}
       />
       <LinkItem
         title="Users"

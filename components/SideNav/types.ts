@@ -4,6 +4,7 @@ export type LinkItemProps = {
   path?: string;
   onClick?: () => void;
   active?: boolean;
+  bannerNumber?: number;
 };
 
 export interface ISideNav {

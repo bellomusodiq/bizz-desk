@@ -14,4 +14,56 @@
 }
 .Header {
   text-align: center;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 38px;
+  letter-spacing: -0.025em;
+  color: #191716;
+}
+.ProfileImageContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.ProfileImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+.UserType {
+  padding: 4px 9px;
+  background: #e9f3fa;
+  border-radius: 4px;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: -0.025em;
+  color: #2085c9;
+  margin-bottom: 30px;
+}
+.ButtonContainer {
+  display: flex;
+  margin-bottom: 30px;
+}
+.UploadButton,
+.RemoveButton {
+  padding: 12px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.UploadButton {
+  background-color: #2085C9;
+  color: white;
+}
+.RemoveButton {
+  background-color: #FCEAE8;
+  color: #ED6A5A
 }
